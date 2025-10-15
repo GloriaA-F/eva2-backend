@@ -1,0 +1,15 @@
+{% extends 'base_vital.html' %}
+{% block title %}Eliminar Especialidad{% endblock %}
+{% block content %}
+<h1 class="text-danger">Confirmar Eliminación</h1>
+<p class="lead">¿Está seguro de que desea eliminar la especialidad **"{{ especialidad.nombre }}"**?</p>
+<div class="alert alert-warning" role="alert">
+    ¡Advertencia! Esta acción es irreversible y podría causar errores si la especialidad está en uso por algún médico.
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sí, Eliminar Especialidad</button>
+    <a href="{% url 'especialidad_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base_vital.html' %}
+{% block title %}Formulario de Detalle de Receta{% endblock %}
+{% block content %}
+<h1>{% if form.instance.pk %}Editar{% else %}Registrar{% endif %} Detalle de Receta</h1>
+<p class="lead">Formulario de CRUD para la entidad Detalle de Receta (asociación de medicamento a receta).</p>
+<form method="post" class="card p-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary mt-3">Guardar Registro</button>
+    <a href="{% url 'detallereceta_list' %}" class="btn btn-secondary mt-2">Cancelar</a>
+</form>
+{% endblock %}

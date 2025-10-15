@@ -1,0 +1,50 @@
+{% extends 'base_vital.html' %}
+{% block title %}Gestión de Salud Vital Ltda.{% endblock %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">Sistema de Gestión de Salud Vital Ltda.</h1>
+
+        <p class="col-md-8 fs-5">También puedes acceder a la <a href="/api/docs/" target="_blank">Documentación de la API (Swagger)</a> y los <a href="/api/v1/endpoints/" target="_blank">Endpoints de la API (DRF Browsable API)</a>.</p>
+    </div>
+</div>
+
+<h2>Módulos de Gestión</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    
+    <div class="col">
+        <div class="card h-100 border-primary">
+            <div class="card-body">
+                <h5 class="card-title">Pacientes y Médicos</h5>
+                <a href="{% url 'paciente_list' %}" class="btn btn-sm btn-primary mb-1">Pacientes</a>
+                <a href="{% url 'medico_list' %}" class="btn btn-sm btn-primary mb-1">Médicos</a>
+                <a href="{% url 'especialidad_list' %}" class="btn btn-sm btn-primary mb-1">Especialidades</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card h-100 border-success">
+            <div class="card-body">
+                <h5 class="card-title">Atenciones y Tratamientos</h5>
+                <a href="{% url 'consultamedica_list' %}" class="btn btn-sm btn-success mb-1">Consultas Médicas</a>
+                <a href="{% url 'tratamiento_list' %}" class="btn btn-sm btn-success mb-1">Tratamientos</a>
+                <a href="{% url 'tipotratamiento_list' %}" class="btn btn-sm btn-success mb-1">Tipos de Tratamiento</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card h-100 border-warning">
+            <div class="card-body">
+                <h5 class="card-title">Recetas y Farmacia</h5>
+                <a href="{% url 'medicamento_list' %}" class="btn btn-sm btn-warning mb-1">Medicamentos</a>
+                <a href="{% url 'recetamedica_list' %}" class="btn btn-sm btn-warning mb-1">Recetas Médicas</a>
+                <a href="{% url 'detallereceta_list' %}" class="btn btn-sm btn-warning mb-1">Detalle Recetas</a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+{% endblock %}

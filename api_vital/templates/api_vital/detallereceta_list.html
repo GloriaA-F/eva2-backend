@@ -1,0 +1,40 @@
+{% extends 'base_vital.html' %}
+{% block title %}Listado de Detalles de Receta{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Gestión de Detalles de Receta</h1>
+    <a href="{% url 'detallereceta_create' %}" class="btn btn-success">Añadir Detalle (Medicamento)</a>
+</div>
+<p class="lead">CRUD - Detalle Receta</p>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Receta ID</th>
+            <th>Medicamento</th>
+            <th>Dosis</th>
+            <th>Frecuencia y Duración</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for detalle in detalles_receta %}
+        <tr>
+            <td>{{ detalle.pk }}</td>
+            <td>{{ detalle.receta.pk }} (Pte: {{ detalle.receta.consulta.paciente.apellido }})</td>
+            <td>{{ detalle.medicamento.nombre_comercial }}</td>
+            <td>{{ detalle.dosis }}</td>
+            <td>{{ detalle.frecuencia }} / {{ detalle.duracion }}</td>
+            <td>
+                <a href="{% url 'detallereceta_update' detalle.pk %}" class="btn btn-sm btn-primary">Editar</a>
+                <a href="{% url 'detallereceta_delete' detalle.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No hay detalles de recetas registrados.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

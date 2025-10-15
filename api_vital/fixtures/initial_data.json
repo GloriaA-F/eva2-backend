@@ -1,0 +1,106 @@
+[
+    {
+        "model": "api_vital.especialidad",
+        "pk": 1,
+        "fields": {
+            "nombre": "Cardiología",
+            "descripcion": "Diagnóstico y tratamiento de enfermedades del corazón."
+        }
+    },
+    {
+        "model": "api_vital.especialidad",
+        "pk": 2,
+        "fields": {
+            "nombre": "Pediatría",
+            "descripcion": "Atención médica a bebés, niños y adolescentes."
+        }
+    },
+    {
+        "model": "api_vital.tipotratamiento",
+        "pk": 1,
+        "fields": {
+            "nombre": "Farmacológico",
+            "descripcion": "Uso de medicamentos."
+        }
+    },
+    {
+        "model": "api_vital.tipotratamiento",
+        "pk": 2,
+        "fields": {
+            "nombre": "Fisioterapia",
+            "descripcion": "Rehabilitación física."
+        }
+    },
+    {
+        "model": "api_vital.paciente",
+        "pk": 1,
+        "fields": {
+            "rut": "18.123.456-7",
+            "nombre": "Juan",
+            "apellido": "Pérez Soto",
+            "fecha_nacimiento": "1985-05-20",
+            "sexo": "M",
+            "direccion": "Av. Principal 123",
+            "telefono": "987654321"
+        }
+    },
+    {
+        "model": "api_vital.paciente",
+        "pk": 2,
+        "fields": {
+            "rut": "19.987.654-3",
+            "nombre": "María",
+            "apellido": "González Díaz",
+            "fecha_nacimiento": "1995-10-10",
+            "sexo": "F",
+            "direccion": "Calle Secundaria 45",
+            "telefono": "912345678"
+        }
+    },
+    {
+        "model": "api_vital.medico",
+        "pk": 101,
+        "fields": {
+            "rut": "15.000.111-2",
+            "nombre": "Ana",
+            "apellido": "Contreras Rojas",
+            "especialidad": 1,
+            "telefono": "955551111",
+            "email": "ana.contreras@sv.cl"
+        }
+    },
+    {
+        "model": "api_vital.medico",
+        "pk": 102,
+        "fields": {
+            "rut": "16.222.333-4",
+            "nombre": "Carlos",
+            "apellido": "Herrera López",
+            "especialidad": 2,
+            "telefono": "955552222",
+            "email": "carlos.herrera@sv.cl"
+        }
+    },
+    {
+        "model": "api_vital.medicamento",
+        "pk": 10,
+        "fields": {
+            "nombre_comercial": "Paracetamol",
+            "principio_activo": "Acetaminofeno",
+            "concentracion": "500 mg",
+            "presentacion": "Comprimido",
+            "stock": 500
+        }
+    },
+    {
+        "model": "api_vital.medicamento",
+        "pk": 11,
+        "fields": {
+            "nombre_comercial": "Lisinopril",
+            "principio_activo": "Lisinopril",
+            "concentracion": "10 mg",
+            "presentacion": "Comprimido",
+            "stock": 250
+        }
+    }
+]

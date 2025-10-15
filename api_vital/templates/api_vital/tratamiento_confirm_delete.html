@@ -1,0 +1,14 @@
+{% extends 'base_vital.html' %}
+{% block title %}Eliminar Tratamiento{% endblock %}
+{% block content %}
+<h1 class="text-danger">Confirmar Eliminación</h1>
+<p class="lead">¿Está seguro de que desea eliminar el tratamiento **"{{ tratamiento.nombre }}"**?</p>
+<div class="alert alert-warning" role="alert">
+    Este tratamiento para la consulta {{ tratamiento.consulta.pk }} del paciente {{ tratamiento.consulta.paciente }} será eliminado.
+</div>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sí, Eliminar Tratamiento</button>
+    <a href="{% url 'tratamiento_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

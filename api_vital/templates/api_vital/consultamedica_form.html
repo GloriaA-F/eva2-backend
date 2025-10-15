@@ -1,0 +1,12 @@
+{% extends 'base_vital.html' %}
+{% block title %}Formulario de Consulta Médica{% endblock %}
+{% block content %}
+<h1>{% if form.instance.pk %}Editar{% else %}Registrar{% endif %} Consulta Médica</h1>
+<p class="lead">Formulario de CRUD para la entidad Consulta Médica. Nota: El campo **Estado** usa los CHOICES.</p>
+<form method="post" class="card p-4">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary mt-3">Guardar Registro</button>
+    <a href="{% url 'consultamedica_list' %}" class="btn btn-secondary mt-2">Cancelar</a>
+</form>
+{% endblock %}

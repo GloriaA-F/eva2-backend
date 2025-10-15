@@ -1,0 +1,21 @@
+{% extends 'base_vital.html' %}
+{% block title %}Eliminar Consulta Médica{% endblock %}
+{% block content %}
+<h1 class="text-danger">Confirmar Eliminación de Consulta Médica</h1>
+
+<div class="alert alert-warning" role="alert">
+    <p class="lead">
+        ¿Está seguro de que desea eliminar la Consulta **ID #{{ consultamedica.pk }}**?
+    </p>
+    <p>
+        **Detalles:** Paciente **{{ consultamedica.paciente }}**, atendido por Dr(a). **{{ consultamedica.medico.apellido }}** el **{{ consultamedica.fecha_consulta|date:"d M Y" }}**.
+    </p>
+    <p>¡Advertencia! Esta acción es irreversible y **eliminará también todos los Tratamientos y Recetas** asociados a esta consulta.</p>
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    <a href="{% url 'consultamedica_list' %}" class="btn btn-secondary">Cancelar</a>
+    <button type="submit" class="btn btn-danger">Sí, Eliminar Consulta</button>
+</form>
+{% endblock %}

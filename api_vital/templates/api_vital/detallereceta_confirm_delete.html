@@ -1,0 +1,14 @@
+{% extends 'base_vital.html' %}
+{% block title %}Eliminar Detalle de Receta{% endblock %}
+{% block content %}
+<h1 class="text-danger">Confirmar Eliminación</h1>
+<p class="lead">¿Está seguro de que desea eliminar el detalle **ID #{{ detallereceta.pk }}**?</p>
+<div class="alert alert-warning" role="alert">
+    El medicamento **{{ detallereceta.medicamento.nombre_comercial }}** se eliminará de la Receta #{{ detallereceta.receta.pk }}.
+</div>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sí, Eliminar Detalle</button>
+    <a href="{% url 'detallereceta_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

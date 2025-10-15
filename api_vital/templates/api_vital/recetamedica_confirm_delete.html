@@ -1,0 +1,14 @@
+{% extends 'base_vital.html' %}
+{% block title %}Eliminar Receta Médica{% endblock %}
+{% block content %}
+<h1 class="text-danger">Confirmar Eliminación</h1>
+<p class="lead">¿Está seguro de que desea eliminar la receta **ID #{{ receta.pk }}**?</p>
+<div class="alert alert-warning" role="alert">
+    ¡Advertencia! Eliminar esta receta eliminará también todos los detalles de medicamentos asociados.
+</div>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sí, Eliminar Receta</button>
+    <a href="{% url 'recetamedica_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

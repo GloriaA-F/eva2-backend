@@ -1,0 +1,18 @@
+{% extends 'base_vital.html' %}
+{% block title %}Eliminar Paciente{% endblock %}
+{% block content %}
+<h1 class="text-danger">Confirmar Eliminación de Paciente</h1>
+
+<div class="alert alert-warning" role="alert">
+    <p class="lead">
+        ¿Está seguro de que desea eliminar al paciente: <strong>{{ paciente.nombre }} {{ paciente.apellido }}</strong> (RUT: {{ paciente.rut }})?
+    </p>
+    <p>¡Advertencia! Esta acción es irreversible y eliminará todos los datos asociados al paciente (consultas, tratamientos, recetas).</p>
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    <a href="{% url 'paciente_list' %}" class="btn btn-secondary">Cancelar</a>
+    <button type="submit" class="btn btn-danger">Sí, Eliminar Paciente</button>
+</form>
+{% endblock %}

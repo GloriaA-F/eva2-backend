@@ -1,0 +1,14 @@
+{% extends 'base_vital.html' %}
+{% block title %}Eliminar Medicamento{% endblock %}
+{% block content %}
+<h1 class="text-danger">Confirmar Eliminación</h1>
+<p class="lead">¿Está seguro de que desea eliminar el medicamento **"{{ medicamento.nombre_comercial }}"**?</p>
+<div class="alert alert-warning" role="alert">
+    ¡Advertencia! Esta acción es irreversible. Podría afectar Recetas y el inventario.
+</div>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sí, Eliminar Medicamento</button>
+    <a href="{% url 'medicamento_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

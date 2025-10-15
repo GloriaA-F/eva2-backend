@@ -1,0 +1,37 @@
+{% extends 'base_vital.html' %}
+{% block title %}Listado de Pacientes{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>Gestión de Pacientes</h1>
+    <a href="{% url 'paciente_create' %}" class="btn btn-success">Registrar Nuevo Paciente</a>
+</div>
+<p class="lead">CRUD - Paciente</p>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>RUT</th>
+            <th>Nombre Completo</th>
+            <th>Fecha Nacimiento</th>
+            <th>Sexo (CHOICES)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for paciente in pacientes %}
+        <tr>
+            <td>{{ paciente.rut }}</td>
+            <td>{{ paciente.nombre }} {{ paciente.apellido }}</td>
+            <td>{{ paciente.fecha_nacimiento|date:"Y-m-d" }}</td>
+            <td>{{ paciente.get_sexo_display }}</td> <td>
+                <a href="{% url 'paciente_update' paciente.pk %}" class="btn btn-sm btn-primary">Editar</a>
+                <a href="{% url 'paciente_delete' paciente.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No hay pacientes registrados.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

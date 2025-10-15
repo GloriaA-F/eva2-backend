@@ -1,0 +1,11 @@
+{% extends 'base_vital.html' %}
+{% block title %}Eliminar Médico{% endblock %}
+{% block content %}
+<h1 class="text-danger">Confirmar Eliminación</h1>
+<p class="lead">¿Está seguro de que desea eliminar al médico **"{{ medico.nombre }} {{ medico.apellido }}"**?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sí, Eliminar Médico</button>
+    <a href="{% url 'medico_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
